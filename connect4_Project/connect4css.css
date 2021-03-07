@@ -1,0 +1,24 @@
+body{
+    background-color: rgb(240, 179, 99) !important;
+    text-align: center;
+}
+
+table{
+    margin: 2% auto;
+    /*border-radius: 10% !important;*/
+    border: 0cm;
+}
+td {
+    margin: 5mm !important;
+    border-radius: 100% ;
+    text-align: center;
+    height: 2cm;
+    width: 2cm;
+    border: 1px solid rgb(240, 179, 99) !important;
+    border-spacing: 5px !important;
+    border-width: 2mm ;
+    background-color:rgb(187, 175, 160);
+    font-size: 1cm !important; 
+    color: white;
+
+}

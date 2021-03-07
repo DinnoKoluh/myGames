@@ -1,0 +1,26 @@
+body{
+    text-align: center;
+    background-color:aliceblue !important;
+}
+
+table{
+    margin: 2% auto!important;
+    border-radius: 10% !important;
+}
+td {
+    border-radius: 50% !important;
+    text-align: center !important;
+    height: 5cm;
+    width: 5cm;
+    border: 1px solid black !important;
+    border-spacing: 1px;
+    border-width: 1mm !important;
+    background-color:antiquewhite;
+    /* padding: 2cm; */
+    font-size: 3cm !important;
+
+}
+
+.card {
+    font-family: monospace !important;
+}
