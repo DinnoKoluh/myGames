@@ -1,5 +1,5 @@
-var rowLen = 5;
-var colLen = 5;
+var rowLen = 6;
+var colLen = 6;
 var winLen = 4;
 
 var myDiv = document.getElementById("htmlT");
