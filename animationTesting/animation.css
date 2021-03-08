@@ -1,0 +1,22 @@
+#animate1 {
+    width: 2cm;
+    height: 2cm;
+    background: red;
+    position: relative;
+    border-radius: 50%;
+    text-align: center;
+}
+
+#ball1, #ball2 {
+    width: 1cm;
+    height: 1cm;
+    background: red;
+    position: relative;
+    border-radius: 50%;
+}
+
+#container {
+    width: 10cm;
+    height: 10cm;
+    background: yellow;
+}

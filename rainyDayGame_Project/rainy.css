@@ -1,0 +1,23 @@
+#me {
+    width: 2cm;
+    height: 2cm;
+    background: red;
+    position: relative;
+    border-radius: 50%;
+    text-align: center;
+}
+
+#ball1, #ball2 {
+    width: 1cm;
+    height: 1cm;
+    background: red;
+    position: relative;
+    border-radius: 50%;
+}
+
+#container {
+    width: 20cm;
+    height: 25cm;
+    background: yellow;
+    position: absolute;
+}

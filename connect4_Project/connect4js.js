@@ -3,13 +3,22 @@ var colLen = 6;
 var winLen = 4;
 
 var myDiv = document.getElementById("htmlT");
+var winLenId = document.getElementById("winLen");
+var colLenId = document.getElementById("colLen");
+var rowLenId = document.getElementById("rowLen");
+
+// var rowLen = rowLenId.value + 1;
+// var colLen = colLenId.value + 1;
+// var winLen = winLenId.value + 1;
+
+
 //var c4Table = new Array(rowLen).fill(new Array(colLen).fill(null));
 var c4Table = (new Array(rowLen)).fill().map(function(){ return new Array(colLen).fill("0");})
 var currPlayer = 0;
 var newgame = $("#newGame"); // jQuery code
 
 var htmlTable = document.createElement("table");
-
+    
 // function convertArrayToMatrix (arr, len) {
 //     var mat = new Array(arr.length/len).fill(Array(len).fill(null));
 //     for (let i = 0; i < arr.length/len; i++) {
@@ -129,6 +138,12 @@ function main () {
 
 function start() {
     currPlayer = 0;
+    // rowLen = parseInt(rowLenId.value);
+    // colLen = parseInt(colLenId.value);
+    // winLen = parseInt(winLenId.value);
+
+    // console.log(winLen + " " + rowLen + " " + colLen)
+
     c4Table = (new Array(rowLen)).fill().map(function(){ return new Array(colLen).fill("0");});
     for (let i = 0; i < rowLen; i++) {
         for (let j = 0; j < colLen; j++) {
@@ -150,7 +165,7 @@ myDiv.appendChild(htmlTable);
 
 htmlTable.rows[3].style.border = "1px solid black";
 
-start();
+//start();
 
 newgame.on("click", function() {
     for (let i = 0; i < rowLen; i++) {
