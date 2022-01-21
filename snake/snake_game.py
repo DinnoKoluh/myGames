@@ -34,6 +34,7 @@ class Snake:
         self.snake_len = 1
         self.obstacle_list = []
         self.snake_speed = 15
+        self.game_over = False
 
         pygame.init()
         self.font_style = pygame.font.SysFont(None, 20)
@@ -117,16 +118,16 @@ class Snake:
         # done with the round and division so that the coordinates of the food and snake can match
         # one snake block subtracted so that we don't go out of range
         self.food = []
-        self.food = [round(random.randrange(self.thickness, self.width - self.snake_block-2*self.thickness)/10)*10,
-                        round(random.randrange(self.thickness, self.height - self.snake_block-2*self.thickness)/10)*10] # x coordinate and y coordinate
+        self.food = [round(random.randrange(2*self.thickness, self.width - self.snake_block-2*self.thickness)/10)*10,
+                        round(random.randrange(2*self.thickness, self.height - self.snake_block-2*self.thickness)/10)*10] # x coordinate and y coordinate
         # Insure that the food isn't spawned onto an obstacle
         for obs in self.obstacle_list:
             if self.food[0] == obs[0] and self.food[1] == obs[1]:
                 self.make_food()
 
     def make_obstacle(self):
-        self.obstacle_list.append([round(random.randrange(self.thickness, self.width - self.snake_block - 2*self.thickness)/10)*10,
-                        round(random.randrange(self.thickness, self.height - self.snake_block - 2*self.thickness)/10)*10]) # x coordinate and y coordinate        
+        self.obstacle_list.append([round(random.randrange(2*self.thickness, self.width - self.snake_block - 2*self.thickness)/10)*10,
+                        round(random.randrange(2*self.thickness, self.height - self.snake_block - 2*self.thickness)/10)*10]) # x coordinate and y coordinate        
 
     def start_game(self):
         # by how much the snake coordinates change in one frame
@@ -137,17 +138,18 @@ class Snake:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.game_over = True
+                    return
                 if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_LEFT:
+                    if event.key == pygame.K_LEFT or event.key == pygame.K_a:
                         delta_x = -self.delta
                         delta_y = 0
-                    elif event.key == pygame.K_RIGHT:
+                    elif event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         delta_x = self.delta
                         delta_y = 0
-                    elif event.key == pygame.K_DOWN:
+                    elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
                         delta_x = 0
                         delta_y = self.delta
-                    elif event.key == pygame.K_UP:
+                    elif event.key == pygame.K_UP or event.key == pygame.K_w:
                         delta_x = 0
                         delta_y = -self.delta
                     elif event.key == pygame.K_p:
@@ -158,6 +160,7 @@ class Snake:
                         self.start_game()
                     elif event.key == pygame.K_q:
                         self.game_over = True
+                        return
 
                 
             if self.game_paused % 2 == 0: #while the game is not paused
@@ -180,8 +183,9 @@ class Snake:
             self.clock.tick(self.snake_speed) # framerate per second
 
         pygame.display.update()
-        time.sleep(1)
-        
+        time.sleep(5)
+        self.__init__()
+        self.start_game()
         #pygame.quit()
 
 #https://stackoverflow.com/questions/54210392/how-can-i-convert-pygame-to-exe
@@ -194,6 +198,6 @@ def resource_path(relative_path):
 
     return os.path.join(base_path, relative_path)
 
-game = Snake(1000, 800)
+game = Snake(1000, 600)
 #game = Snake()
 game.start_game()
