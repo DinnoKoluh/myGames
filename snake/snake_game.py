@@ -178,7 +178,7 @@ class Snake:
                 self.check_snake_eat_itself()
                 self.check_snake_hit_obstacle()
                 self.check_snake_ate_food()
-                self.display_score()   
+                self.display_score()  
             pygame.display.update()
             self.clock.tick(self.snake_speed) # framerate per second
 
