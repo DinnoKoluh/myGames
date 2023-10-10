@@ -5,6 +5,8 @@ import copy
 import sys
 import os
 
+# pyinstaller snake_game.py
+
 class Snake:
     game_over = False # boolean variable to keep the status of the game
     game_paused = 0
